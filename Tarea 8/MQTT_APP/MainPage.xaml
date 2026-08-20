@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MQTT_APP.MainPage"
+             BackgroundColor="#16213E">
+
+    <Grid
+        RowDefinitions="*,Auto">
+
+        <ScrollView
+            Grid.Row="0">
+            <VerticalStackLayout
+                Padding="30,40"
+                Spacing="20">
+
+                <Label
+                    x:Name="EstadoConexion"
+                    Text="Desconectado"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    TextColor="#EF5350" />
+
+                <Button
+                    x:Name="BotonConectar"
+                    Text="Conectar"
+                    FontSize="18"
+                    BackgroundColor="#2563EB"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    WidthRequest="200"
+                    Clicked="FunctionConnect" />
+
+                <BoxView
+                    HeightRequest="1"
+                    Color="#33486A"
+                    Margin="0,10" />
+
+                <Label
+                    Text="Nuevo mensaje"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="#E0E0E0" />
+
+                <Grid
+                    ColumnDefinitions="*,Auto"
+                    ColumnSpacing="10">
+
+                    <Entry
+                        x:Name="MensajeTexto"
+                        Grid.Column="0"
+                        Placeholder="Escribe el mensaje a publicar..."
+                        PlaceholderColor="#9E9E9E"
+                        FontSize="16"
+                        BackgroundColor="#222D4A"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        x:Name="BotonEnviar"
+                        Grid.Column="1"
+                        Text="Enviar"
+                        FontSize="16"
+                        BackgroundColor="#2563EB"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        Clicked="enviarMensaje" />
+
+                </Grid>
+
+                <BoxView
+                    HeightRequest="1"
+                    Color="#33486A"
+                    Margin="0,10" />
+
+                <Label
+                    Text="Ultimo mensaje recibido"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="#E0E0E0" />
+
+                <Label
+                    x:Name="UltimoMensaje"
+                    FontSize="18"
+                    TextColor="#FFFFFF"
+                    HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="(sin mensajes)" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Button
+            x:Name="BotonLimpiar"
+            Grid.Row="1"
+            Text="Limpiar historial"
+            FontSize="16"
+            BackgroundColor="#2563EB"
+            TextColor="White"
+            Margin="0,10,30,20"
+            HorizontalOptions="End"
+            Clicked="limpiarHistorial" />
+
+    </Grid>
+
+</ContentPage>
